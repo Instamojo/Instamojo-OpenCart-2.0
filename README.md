@@ -2,7 +2,7 @@ Instamojo-OpenCart for OpenCart versions 2.0.x
 ====
 ----
 This module allows us to use [Instamojo](https://www.instamojo.com) as Payment Gateway in OpenCart 2.0.x
-
+(**Note:** If you're using OpenCart version 1.5.x then use our other plugin: https://github.com/ashwch/Instamojo-OpenCart-1.5/)
 ###Installation
 ---
 - Download the [zip file](https://github.com/ashwch/Instamojo-OpenCart-2.0/archive/master.zip) and paste the content of **upload** folder into your sites main directory, this is **public_html** is most cases. Note that inside **public_html** you will already have folders named **admin** and **catalog**, so you are supposed to merge the **admin** and **catalog** from our module to those folders.
@@ -50,7 +50,7 @@ In this section we will learn how to create a Payment link along with how to get
 - Now on the Payment Link page go to **More options** and click on **Custom Fields**
  Create a custom field called **Order ID**, mark it as **required** and save it. In the custom field creation page, hover over the field you just created. You'll see a field with the format **Field_**. Note down the full name (including the **Field_** bit. Note that this is case sensitive!).
 
-![enter image description here](http://i.imgur.com/qNR4Z4Z.png)
+![enter image description here](http://i.imgur.com/fC3uViS.png)
 
 Enter this name in the **Custom field** field of the Instamojo module configuration page in OpenCart.
 
