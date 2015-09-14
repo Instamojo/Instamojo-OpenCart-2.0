@@ -27,6 +27,8 @@ class ControllerPaymentInstamojo extends Controller {
     $data['text_disabled'] = $this->language->get('text_disabled');
     $data['text_edit'] = $this->language->get('text_edit');
     $data['entry_status'] = $this->language->get('entry_status');
+    $data['entry_sort_order'] = $this->language->get('entry_sort_order');
+    
  
     $data['action'] = $this->url->link('payment/instamojo', 'token=' . $this->session->data['token'], 'SSL');
     $data['cancel'] = $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL');
@@ -77,6 +79,12 @@ class ControllerPaymentInstamojo extends Controller {
       $data['instamojo_order_status_id'] = $this->request->post['instamojo_order_status_id'];
     } else {
       $data['instamojo_order_status_id'] = $this->config->get('instamojo_order_status_id');
+    }
+
+    if (isset($this->request->post['instamojo_sort_order'])) {
+      $data['instamojo_sort_order'] = $this->request->post['instamojo_sort_order'];
+    } else {
+      $data['instamojo_sort_order'] = $this->config->get('instamojo_sort_order');
     }
  
     $this->load->model('localisation/order_status');

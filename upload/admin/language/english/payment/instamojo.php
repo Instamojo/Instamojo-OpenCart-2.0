@@ -14,6 +14,7 @@ $_['instamojo_custom_field'] = 'Custom Field';
 
 $_['entry_status'] = 'Status';
 $_['entry_order_status'] = 'Order Status';
+$_['entry_sort_order'] = 'Sort Order';
  
 $_['text_button_save'] = 'Save';
 $_['text_button_cancel'] = 'Cancel';
