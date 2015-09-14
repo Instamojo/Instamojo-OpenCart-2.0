@@ -28,7 +28,7 @@ Now you will see a form like this:
 ---
 I will explain **`Order Status`**, **`Checkout Label`** and **`Status`** here and rest of the fields are explained in next sections:  
 
-- **Order Status**:  This is the default status of an order, set its value to **Pending**. After successful payment its value for a particular order will be **Processing**.
+- **Order Status**:  This is the order of the status that you would like to set after a **successful** payment.
 - **Checkout Label**: This is the label users will see during checkout, its default value is **"Pay using Instamojo"**. You can change it to somethint more generic like **"Pay using Credit/Debit Card or Online Banking"**.
 - **Status**:  This is the current status of the module. To use Instamojo during checkout make sure to change it to **enabled**.
 
@@ -79,3 +79,8 @@ This module will everything to a file named **imojo.log** under **system/logs**.
 
 ---
 <sub>`*` This may be different for your **Checkout Label** is different.</sub>
+
+### Support
+---
+
+If you're facing some issue with plugin integration then open an ticket at http://support.instamojo.com/. Please do include a **screenshot of the settings** you've done for the plugin in your admin backend as well as the **URL of the Instamojo payment link** you're using with the plugin.
