@@ -28,7 +28,7 @@ class ControllerPaymentInstamojo extends Controller {
 
       $name = substr(trim((html_entity_decode($order_info['shipping_firstname'] . ' ' . $order_info['shipping_lastname'], ENT_QUOTES, 'UTF-8'))), 0, 20);
       $email = substr($order_info['email'], 0, 75);
-      $phone = substr(ltrim(html_entity_decode($order_info['telephone'], ENT_QUOTES, 'UTF-8'), '+'), 0, 20);
+      $phone = substr(html_entity_decode($order_info['telephone'], ENT_QUOTES, 'UTF-8'), 0, 20);
       $amount = $this->currency->format($order_info['total'], $order_info['currency_code'] , false, false);
       $orderid = date('His') . '-' . $this->session->data['order_id'];
 
@@ -82,8 +82,7 @@ class ControllerPaymentInstamojo extends Controller {
       $payment_status = $data['payment']['status'];
       $this->logger->write("Response from server is $payment_status.");
 
-      if($payment_status === "Credit"){
-        $this->logger->write("Payment for $payment_id was credited.");
+      if($payment_status === "Credit" || $payment_status === "Failed" || $payment_status === "Initiated"){
         $custom_field = $this->config->get('instamojo_custom_field');
         $tr_ord_id = $data['payment']['custom_fields'][$custom_field]['value'];
         $time_order_id = explode('-',  $tr_ord_id);
@@ -91,28 +90,34 @@ class ControllerPaymentInstamojo extends Controller {
         $this->load->model('checkout/order');
         $order_info = $this->model_checkout_order->getOrder($order_id);
 
-        if ($order_info) {
-          $this->model_checkout_order->addOrderHistory($order_id, 2);
-          $this->response->redirect($this->url->link('checkout/success', '', 'SSL'));
-        }
-        else{
-          
-          $this->logger->write("Couldn't find any order for Payment ID $payment_id. Please contact the site admin for enquiries.");
-          $this->response->redirect($this->url->link('checkout/cart', '', 'SSL'));
+        if($order_info){
+
+          if($payment_status == "Credit"){
+              $this->logger->write("Payment for $payment_id was credited.");
+              $this->model_checkout_order->addOrderHistory($order_id, $this->config->get('instamojo_order_status_id'), "Payment successful for instamojo payment ID: $payment_id", true);
+              $this->response->redirect($this->url->link('checkout/success', '', 'SSL'));
+            }
+            else if($payment_status == "Failed"){
+              $this->logger->write("Payment for $payment_id failed.");
+              $this->model_checkout_order->addOrderHistory($order_id, 10, "Payment failed for instamojo payment ID: $payment_id", true);
+              $this->response->redirect($this->url->link('checkout/cart', '', 'SSL'));
+
+            }
+            else if($payment_status == "Initiated"){
+              $this->logger->write("Payment for $payment_id failed(initiated).");
+              $this->model_checkout_order->addOrderHistory($order_id, 10, "Payment initiated for instamojo payment ID but never completed: $payment_id", true);
+              $this->response->redirect($this->url->link('checkout/cart', '', 'SSL'));
+            }
         }
 
       }
       else{
         $this->logger->write("Payment for $payment_id was not credited.");
         $this->response->redirect($this->url->link('checkout/cart', '', 'SSL'));
-        //$this->response->redirect($this->url->link('checkout/cart', '', 'SSL'));
-        //$method_data['insta_error'] = "Either $payment_id is is an invalid Payment ID or the payment for it was unsuccessful. Please contact the site admin for enquiries.";
-
       } 
     } else {
       $this->logger->write("Callback called with no payment ID.");
       $this->response->redirect($this->config->get('config_url'));
-      //die('Illegal Access');
     }
   
   }
@@ -121,7 +126,7 @@ class ControllerPaymentInstamojo extends Controller {
   private function _getcurlInfo($payment_id){
 
     $this->logger->write("Get the required field for payment ID: $payment_id");
-    $cUrl = 'https://www.instamojo.com/api/1.1/payments/' . $payment_id;
+    $cUrl = 'https://www.instamojo.com/api/1.1/payments/' . $payment_id . '/';
     $api_key = $this->config->get('instamojo_api_key');
     $auth_token = $this->config->get('instamojo_auth_token');
     $ch = curl_init();
