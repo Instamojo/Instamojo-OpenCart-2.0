@@ -26,7 +26,7 @@ class ControllerPaymentInstamojo extends Controller {
 
       $this->logger->write("$api_key | $auth_token | $private_salt | $custom_field_name");
 
-      $name = substr(trim((html_entity_decode($order_info['shipping_firstname'] . ' ' . $order_info['shipping_lastname'], ENT_QUOTES, 'UTF-8'))), 0, 20);
+      $name = substr(trim((html_entity_decode($order_info['payment_firstname'] . ' ' . $order_info['payment_lastname'], ENT_QUOTES, 'UTF-8'))), 0, 20);
       $email = substr($order_info['email'], 0, 75);
       $phone = substr(html_entity_decode($order_info['telephone'], ENT_QUOTES, 'UTF-8'), 0, 20);
       $amount = $this->currency->format($order_info['total'], $order_info['currency_code'] , false, false);
