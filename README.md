@@ -2,10 +2,10 @@ Instamojo-OpenCart for OpenCart versions 2.0.x
 ====
 ----
 This module allows us to use [Instamojo](https://www.instamojo.com) as Payment Gateway in OpenCart 2.0.x
-(**Note:** If you're using OpenCart version 1.5.x then use our other plugin: https://github.com/ashwch/Instamojo-OpenCart-1.5/)
+(**Note:** If you're using OpenCart version 1.5.x then use our other plugin: https://github.com/instamojo/Instamojo-OpenCart-1.5/)
 ###Installation
 ---
-- Download the [zip file](https://github.com/ashwch/Instamojo-OpenCart-2.0/archive/master.zip) and paste the content of **upload** folder into your sites main directory, this is **public_html** is most cases. Note that inside **public_html** you will already have folders named **admin** and **catalog**, so you are supposed to merge the **admin** and **catalog** from our module to those folders.
+- Download the [zip file](https://github.com/instamojo/Instamojo-OpenCart-2.0/archive/master.zip) and paste the content of **upload** folder into your sites main directory, this is **public_html** is most cases. Note that inside **public_html** you will already have folders named **admin** and **catalog**, so you are supposed to merge the **admin** and **catalog** from our module to those folders.
 
 - Now go the admin backend and there go to **Extensions -> Payments**:
 
