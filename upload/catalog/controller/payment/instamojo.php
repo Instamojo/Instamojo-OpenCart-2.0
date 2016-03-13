@@ -35,10 +35,7 @@ class ControllerPaymentInstamojo extends Controller {
       $this->logger->write("$name | $email | $phone | $amount | $orderid");
 
       $data = Array();
-      $data['data_name'] = $name;
-      $data['data_email'] = $email;
       $data['data_amount'] = $amount;
-      $data['data_phone'] = $phone;
       $data[$custom_field_name] = $orderid;
 
       $this->logger->write("Data before sorting: " .  print_r($data, true));
@@ -57,6 +54,10 @@ class ControllerPaymentInstamojo extends Controller {
       $this->logger->write("Data after sorting: " .  print_r($data, true));
 
       $str = hash_hmac("sha1", implode("|", $data), $private_salt);
+
+      $data['data_name'] = !empty($name)? $name : ''
+      $data['data_email'] = !empty($email)? $email : ''
+      $data['data_phone'] = !empty($name)? $phone : ''
 
       $this->logger->write("Signature is: $str");
       $data['data_sign'] = $str;
