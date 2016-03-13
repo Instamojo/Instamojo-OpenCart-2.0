@@ -7,10 +7,7 @@
     <input type="hidden" name="data_name" value="<?php echo $data_name;?>">
     <input type="hidden" name="data_phone" value="<?php echo $data_phone;?>">
     <input type="hidden" name="intent" value="buy">
-    <input type="hidden" name="data_readonly" value="data_email">
-    <input type="hidden" name="data_readonly" value="data_name">
     <input type="hidden" name="data_readonly" value="data_amount">
-    <input type="hidden" name="data_readonly" value="data_phone">
     <input type="hidden" name="data_readonly" value="<?php echo $custom_field_name;?>">
     <input type="hidden" name="data_hidden" value="<?php echo $custom_field_name;?>">
     <input type="hidden" name="data_sign" value="<?php echo $data_sign;?>">
