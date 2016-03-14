@@ -12,7 +12,7 @@
     <input type="hidden" name="data_hidden" value="<?php echo $custom_field_name;?>">
     <input type="hidden" name="data_sign" value="<?php echo $data_sign;?>">
 
-  <div class="buttons">
+  <div class="buttons" style="display: block !important">
     <div class="right">
       <input type="submit" value="Confirm Order" class="button" />
     </div>
