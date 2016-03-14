@@ -55,9 +55,9 @@ class ControllerPaymentInstamojo extends Controller {
 
       $str = hash_hmac("sha1", implode("|", $data), $private_salt);
 
-      $data['data_name'] = !empty($name)? $name : ''
-      $data['data_email'] = !empty($email)? $email : ''
-      $data['data_phone'] = !empty($name)? $phone : ''
+      $data['data_name'] = !empty($name)? $name : '';
+      $data['data_email'] = !empty($email)? $email : '';
+      $data['data_phone'] = !empty($name)? $phone : '';
 
       $this->logger->write("Signature is: $str");
       $data['data_sign'] = $str;
