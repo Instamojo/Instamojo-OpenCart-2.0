@@ -1,7 +1,7 @@
-Instamojo-OpenCart for OpenCart versions 2.0.x
+Instamojo-OpenCart for OpenCart versions 2.x
 ====
 ----
-This module allows us to use [Instamojo](https://www.instamojo.com) as Payment Gateway in OpenCart 2.0.x
+This module allows us to use [Instamojo](https://www.instamojo.com) as Payment Gateway in OpenCart 2.x
 (**Note:** If you're using OpenCart version 1.5.x then use our other plugin: https://github.com/instamojo/Instamojo-OpenCart-1.5/)
 ###Installation
 ---
