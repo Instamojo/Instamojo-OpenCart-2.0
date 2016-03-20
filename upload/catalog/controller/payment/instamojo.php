@@ -67,7 +67,7 @@ class ControllerPaymentInstamojo extends Controller {
       if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/instamojo.tpl')){
         $template = $this->config->get('config_template') . '/template/payment/instamojo.tpl';
       } else {
-        $template = 'default/template/payment/instamojo.tpl';
+        $template = 'payment/instamojo.tpl';
       }
       return $this->load->view($template, $method_data);
     }
