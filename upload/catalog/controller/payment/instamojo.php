@@ -53,7 +53,7 @@ class ControllerPaymentInstamojo extends Controller {
       else{
           uksort($data, 'strcasecmp');
       }
-
+ 
       $this->logger->write("Data after sorting: " .  print_r($data, true));
 
       $str = hash_hmac("sha1", implode("|", $data), $private_salt);
@@ -64,12 +64,12 @@ class ControllerPaymentInstamojo extends Controller {
       $method_data['custom_field_name'] = $custom_field_name;
       $method_data['custom_field'] = $orderid;
 
-      if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/instamojo.tpl')){
-        $template = $this->config->get('config_template') . '/template/payment/instamojo.tpl';
+      if(version_compare(VERSION, '2.2.0.0', '<')) {
+          return $this->load->view('default/template/payment/instamojo.tpl', $method_data);
       } else {
-        $template = 'payment/instamojo.tpl';
+        return $this->load->view('payment/instamojo.tpl', $method_data);
       }
-      return $this->load->view($template, $method_data);
+
     }
   }
   
