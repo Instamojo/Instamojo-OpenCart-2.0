@@ -7,23 +7,33 @@ class ControllerPaymentInstamojo extends Controller {
     $this->document->setTitle('Instamojo Payment Method Configuration');
     $this->load->model('setting/setting');
  
-    if (($this->request->server['REQUEST_METHOD'] == 'POST')) {
+    if (($this->request->server['REQUEST_METHOD'] == 'POST') and $this->validate()) {
       $this->model_setting_setting->editSetting('instamojo', $this->request->post);
       $this->session->data['success'] = 'Saved.';
       $this->response->redirect($this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL'));
     }
- 
+	
+	
+	if($this->error)
+	{
+		$data['error_warning'] = implode("<br/>",$this->error);	
+	}else
+		$data['error_warning'] = ""; 
+	
     $data['heading_title'] = $this->language->get('heading_title');
     $data['entry_text_instamojo_checkout_label'] = $this->language->get('instamojo_checkout_label');
-    $data['entry_text_instamojo_api_key'] = $this->language->get('instamojo_api_key');
-    $data['entry_text_instamojo_auth_token'] = $this->language->get('instamojo_auth_token');
-    $data['entry_text_instamojo_private_salt'] = $this->language->get('instamojo_private_salt');
-    $data['entry_text_instamojo_payment_link'] = $this->language->get('instamojo_payment_link');
-    $data['entry_text_instamojo_custom_field'] = $this->language->get('instamojo_custom_field');
-    $data['button_save'] = $this->language->get('text_button_save');
+    $data['entry_text_instamojo_client_id'] = $this->language->get('instamojo_client_id');
+    $data['entry_text_instamojo_client_secret'] = $this->language->get('instamojo_client_secret');
+    
+	$data['button_save'] = $this->language->get('text_button_save');
     $data['button_cancel'] = $this->language->get('text_button_cancel');
     $data['entry_order_status'] = $this->language->get('entry_order_status');
-    $data['text_enabled'] = $this->language->get('text_enabled');
+   
+	$data['entry_test_mode'] = $this->language->get('entry_test_mode');
+    $data['entry_test_mode_on'] = $this->language->get('entry_test_mode_on');
+    $data['entry_test_mode_off'] = $this->language->get('entry_test_mode_off');
+    
+	$data['text_enabled'] = $this->language->get('text_enabled');
     $data['text_disabled'] = $this->language->get('text_disabled');
     $data['text_edit'] = $this->language->get('text_edit');
     $data['entry_status'] = $this->language->get('entry_status');
@@ -39,36 +49,26 @@ class ControllerPaymentInstamojo extends Controller {
       $data['instamojo_checkout_label'] = $this->config->get('instamojo_checkout_label');
     }
  
-    if (isset($this->request->post['instamojo_api_key'])) {
-      $data['instamojo_api_key'] = $this->request->post['instamojo_api_key'];
+ 
+    if (isset($this->request->post['instamojo_client_id'])) {
+      $data['instamojo_client_id'] = $this->request->post['instamojo_client_id'];
     } else {
-      $data['instamojo_api_key'] = $this->config->get('instamojo_api_key');
+      $data['instamojo_client_id'] = $this->config->get('instamojo_client_id');
     }
-        
-    if (isset($this->request->post['instamojo_auth_token'])) {
-      $data['instamojo_auth_token'] = $this->request->post['instamojo_auth_token'];
+    
+	if (isset($this->request->post['instamojo_testmode'])) {
+      $data['instamojo_testmode'] = $this->request->post['instamojo_testmode'];
     } else {
-      $data['instamojo_auth_token'] = $this->config->get('instamojo_auth_token');
-    }
-
-    if (isset($this->request->post['instamojo_private_salt'])) {
-      $data['instamojo_private_salt'] = $this->request->post['instamojo_private_salt'];
+      $data['instamojo_testmode'] = $this->config->get('instamojo_testmode');
+    }    
+    if (isset($this->request->post['instamojo_client_secret'])) {
+      $data['instamojo_client_secret'] = $this->request->post['instamojo_client_secret'];
     } else {
-      $data['instamojo_private_salt'] = $this->config->get('instamojo_private_salt');
-    }
-
-    if (isset($this->request->post['instamojo_payment_link'])) {
-      $data['instamojo_payment_link'] = $this->request->post['instamojo_payment_link'];
-    } else {
-      $data['instamojo_payment_link'] = $this->config->get('instamojo_payment_link');
+      $data['instamojo_client_secret'] = $this->config->get('instamojo_client_secret');
     }
 
-    if (isset($this->request->post['instamojo_custom_field'])) {
-      $data['instamojo_custom_field'] = $this->request->post['instamojo_custom_field'];
-    } else {
-      $data['instamojo_custom_field'] = $this->config->get('instamojo_custom_field');
-    }
-            
+ 
+       
     if (isset($this->request->post['instamojo_status'])) {
       $data['instamojo_status'] = $this->request->post['instamojo_status'];
     } else {
@@ -113,4 +113,27 @@ class ControllerPaymentInstamojo extends Controller {
 
     $this->response->setOutput($this->load->view('payment/instamojo.tpl', $data));
   }
+  
+  private function validate() {
+		if (!$this->user->hasPermission('modify', 'payment/instamojo')) {
+			$this->error['warning'] = $this->language->get('error_permission');
+		}
+
+		if (!$this->request->post['instamojo_checkout_label']) {
+			$this->error['instamojo_checkout_label'] = $this->language->get('error_checkout_label');
+		}
+		if (!$this->request->post['instamojo_client_id']) {
+			$this->error['instamojo_client_id'] = $this->language->get('error_client_id');
+		}
+		if (!$this->request->post['instamojo_client_secret']) {
+			$this->error['instamojo_client_secret'] = $this->language->get('error_client_secret');
+		}
+
+		if (!$this->error) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+  
 }
