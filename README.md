@@ -44,10 +44,10 @@ In this section we will learn how to create a product along with how to get the 
 
 ![enter image description here](http://i.imgur.com/mp2xipp.png)
 
- Now click on **Add Product to Store**.
+ Click on **Add Product to Store** to save the product.
  
-- Now copy the product URL and paste this in **Payment Link** field. URL's format is usually: **https://www.instamojo.com/username/slug/**.
-- Now on the product page go to **More options** and click on **Custom Fields**
+- Copy the product URL and paste this in **Payment Link** field. URL's format is usually: **https://www.instamojo.com/username/slug/**.
+- On the product page go to **More options** and click on **Custom Fields**
  Create a custom field called **Order ID**, mark it as **required** and click on **Add Custom Field**. 
 
  ![enter image description here](http://i.imgur.com/0phw8JM.png)
