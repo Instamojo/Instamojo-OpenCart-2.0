@@ -32,27 +32,30 @@ I will explain **`Order Status`**, **`Checkout Label`** and **`Status`** here an
 - **Checkout Label**: This is the label users will see during checkout, its default value is **"Pay using Instamojo"**. You can change it to somethint more generic like **"Pay using Credit/Debit Card or Online Banking"**.
 - **Status**:  This is the current status of the module. To use Instamojo during checkout make sure to change it to **enabled**.
 
-### Creating a Payment Link
+### Creating a Product
 ----
-In this section we will learn how to create a Payment link along with how to get the required values for `Payment Link` and `Custom Field` .
+In this section we will learn how to create a product along with how to get the required values for `Payment Link` and `Custom Field`.
 
-- Create a Payment Link on Instamojo under the **Services/Membership** option.
+- Create a product by clicking on **Add a Product** on your Instamojo dashboard and choose the category **Other**.
 
   Set the price to Rs. 10 and enable **"Pay what you want"**.  Under **Title** and **Description**, you may enter something that describes your business and the nature of the products being sold.
 
-  Under **Advanced settings** of the same link there's a field **Custom Redirection URL**, here if your website's url is **http://www.example.com** then use **http://www.example.com/index.php?route=payment/instamojo/callback** as **Custom Redirection URL**.
+  Under **Advanced settings** of the same product there's a field **Custom Redirection URL**. Here if your website's url is **http://www.example.com** then use **http://www.example.com/index.php?route=payment/instamojo/callback** as **Custom Redirection URL**.
 
-![enter image description here](http://i.imgur.com/6PiluLa.png)
+![enter image description here](http://i.imgur.com/mp2xipp.png)
 
- Now click on **Get started** to save the button.
+ Click on **Add Product to Store** to save the product.
  
-- Now copy the Payment Link URL and paste this in **Payment Link** field. URL's format is usually: **https://www.instamojo.com/username/slug/**.
-- Now on the Payment Link page go to **More options** and click on **Custom Fields**
- Create a custom field called **Order ID**, mark it as **required** and save it. In the custom field creation page, hover over the field you just created. You'll see a field with the format **Field_**. Note down the full name (including the **Field_** bit. Note that this is case sensitive!).
+- Copy the product URL and paste this in **Payment Link** field. URL's format is usually: **https://www.instamojo.com/username/slug/**.
+- On the product page go to **More options** and click on **Custom Fields**. Create a custom field called **Order ID** and mark it as **required**. Click on **Add Custom Field** to save this custom field. 
 
-![enter image description here](http://i.imgur.com/fC3uViS.png)
+ ![enter image description here](http://i.imgur.com/0phw8JM.png)
 
-Enter this name in the **Custom field** field of the Instamojo module configuration page in OpenCart.
+ After the custom field has been created **Existing Custom Fields** section will appear. Copy the name shown under **Field ID** column, its format is **Field_xxxx**, where **xxxx** are some numbers(Note that this is case sensitive!). In this example the value is **Field_11828**.
+
+![enter image description here](http://i.imgur.com/5G3yiWs.png)
+
+Enter this value in the **Custom field** field of the Instamojo module configuration page in OpenCart.
 
 ### Auth
 ---
