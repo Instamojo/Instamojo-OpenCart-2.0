@@ -1,5 +1,6 @@
 <?php
-require __DIR__ ."/lib/instamojo.php";
+require __DIR__ . "/lib/Instamojo.php";
+
 class ControllerPaymentInstamojo extends Controller {
 
   private $logger;

@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__. DIRECTORY_SEPARATOR ."CurlException.php";
+include __DIR__ . DIRECTORY_SEPARATOR . "CurlException.php";
 class Curl
 {
 	private $ch;
