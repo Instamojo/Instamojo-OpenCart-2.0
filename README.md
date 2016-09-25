@@ -3,7 +3,9 @@
 
 ## Download:
 
-Download the latest Instamojo-OpenCart-2.x.ocmod.zip from the [releases section](https://github.com/Instamojo/Instamojo-OpenCart-2.0/releases) or download it from the [OpenCart Extensions website](http://www.opencart.com/index.php?route=extension/extension/info&extension_id=21984).
+Download the latest release from the [releases section](https://github.com/Instamojo/Instamojo-OpenCart-2.0/releases) or download it from the [OpenCart Extensions website](http://www.opencart.com/index.php?route=extension/extension/info&extension_id=21984).
+
+For auto-installation rename the file to use the extension `ocmod.zip`, for example: `Instamojo-OpenCart-2.x.ocmod.zip`.
 
 ## Installation
 
@@ -26,6 +28,7 @@ Download the latest Instamojo-OpenCart-2.x.ocmod.zip from the [releases section]
 ***
 
 ## Configuration
+
 1. After installation click on edit button corresponding to Instamojo module(the button have pencil icon).
 2. Fill the following details:
 
@@ -35,8 +38,20 @@ Download the latest Instamojo-OpenCart-2.x.ocmod.zip from the [releases section]
       
     -  **Status:** This is the current status of the module. To use Instamojo during checkout make sure to change it to enabled.
      
-    - **Client Secret And Client ID** will be available on your Instamojo account.
+    - **Client ID** and **Client Secret** - Client Secret And Client ID can be generated on the [Integrations page](https://www.instamojo.com/integrations/). Related support article: [How Do I Get My Client ID And Client Secret?](https://support.instamojo.com/hc/en-us/articles/212214265-How-do-I-get-my-Client-ID-and-Client-Secret-)
     
     - **Test Mode:** If enabled you can use our [Sandbox environment](https://test.instamojo.com) to test payments. Note that in this case you should use `Client Secret` and `Client ID` from the test account not production.
 
-***
+## Migrating from older version
+
+If you were already using older version of our plugin then follow these steps:
+
+1. Uninstall the old Instamojo extension first from `Extensions -> Payments`.
+2. Now remove the following files:
+   - admin/controller/payment/instamojo.php
+   - admin/language/english/payment/instamojo.php
+   - admin/view/template/payment/instamojo.tpl
+
+   - catalog/controller/payment/instamojo.php
+   - catalog/model/payment/instamojo.php
+   - catalog/view/theme/default/template/payment/instamojo.tpl
