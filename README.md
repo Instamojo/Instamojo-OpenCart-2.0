@@ -1,5 +1,6 @@
-# Instamojo Opencart Payment Gateway Plugin
+# Instamojo Opencart 2.X Payment Gateway Plugin
 
+Tested on OpenCart 2.0.3.1, 2.1.0.2 and 2.2.0.2
 
 ## Download:
 
@@ -51,7 +52,15 @@ If you were already using older version of our plugin then follow these steps:
    - admin/controller/payment/instamojo.php
    - admin/language/english/payment/instamojo.php
    - admin/view/template/payment/instamojo.tpl
-
    - catalog/controller/payment/instamojo.php
    - catalog/model/payment/instamojo.php
    - catalog/view/theme/default/template/payment/instamojo.tpl
+
+## Support
+
+For any issue send an email to support@instamojo.com and do share the `imojo.log` file if asked.
+
+Location of `imojo.log` file:
+- `OpenCart 2.0.3.1`: `system/logs/imojo.log`
+- `OpenCart 2.1.0.2`: `system/storage/logs/imojo.log`
+- `OpenCart 2.2.0.0`: `system/storage/logs/imojo.log`
