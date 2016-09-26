@@ -54,20 +54,6 @@ If you were already using older version of our plugin then follow these steps:
    - catalog/model/payment/instamojo.php
    - catalog/view/theme/default/template/payment/instamojo.tpl
 
-## Migrating from older version
-
-If you were already using older version of our plugin then follow these steps:
-
-1. Uninstall the old Instamojo extension first from `Extensions -> Payments`.
-2. Now remove the following files:
-   - admin/controller/payment/instamojo.php
-   - admin/language/english/payment/instamojo.php
-   - admin/view/template/payment/instamojo.tpl
-
-   - catalog/controller/payment/instamojo.php
-   - catalog/model/payment/instamojo.php
-   - catalog/view/theme/default/template/payment/instamojo.tpl
-
 ## Support
 
 For any issue send us an email to support@instamojo.com and share the `imojo.log` file
