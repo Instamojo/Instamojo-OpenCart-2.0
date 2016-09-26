@@ -14,19 +14,17 @@ For auto-installation rename the file to use the extension `ocmod.zip`, for exam
 1. Go to Extensions > Extension installer.
 2. Click on upload and select Instamojo-OpenCart-2.x.ocmod.zip from your download directory
 3. Click on Continue button. 
-4. You will get the success notification if extension properly installed.
+4. You will get the success notification if extension is properly installed.
 
 ***Note: if automatic installation fails you can try further manual installation steps.***
 
-***
+
 #### Manual Installation:
 
-1.  Copy the contents of `upload` directory(the folders inside upload directory in plugin) into your OpenCart installation root directory **(No files are going to be overwritten)**.
-
+1.  Copy the contents of `upload` directory(the folders inside upload directory in plugin) into your OpenCart installation root directory.
 2. Navigate to Extensions > Payment from admin panel menu.
 3. Look for the Instamojo in Payment List.
 4. Click on green Install button(the button have + icon).
-***
 
 ## Configuration
 
@@ -72,7 +70,7 @@ If you were already using older version of our plugin then follow these steps:
 
 ## Support
 
-For any issue send an email to support@instamojo.com and do share the `imojo.log` file if asked.
+For any issue send us an email to support@instamojo.com and share the `imojo.log` file
 
 Location of `imojo.log` file:
 - `OpenCart 2.0.3.1`: `system/logs/imojo.log`
