@@ -4,7 +4,7 @@ Tested on OpenCart 2.0.3.1, 2.1.0.2 and 2.2.0.2
 
 ## Download:
 
-Download the latest release from the [releases section](https://github.com/Instamojo/Instamojo-OpenCart-2.0/releases) or download it from the [OpenCart Extensions website](http://www.opencart.com/index.php?route=extension/extension/info&extension_id=21984).
+Download the [latest release](https://github.com/Instamojo/Instamojo-OpenCart-2.0/releases/latest) from GitHub or download it from the [OpenCart Extensions website](http://www.opencart.com/index.php?route=extension/extension/info&extension_id=21984).
 
 For auto-installation rename the file to use the extension `ocmod.zip`, for example: `Instamojo-OpenCart-2.x.ocmod.zip`.
 
