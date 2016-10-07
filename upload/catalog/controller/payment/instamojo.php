@@ -130,7 +130,9 @@ class ControllerPaymentInstamojo extends Controller {
 		$api = $this->getInstamojoObject();
 		$response = $api->getOrderById($payment_request_id);
 		$this->logger->write("Response from server for PaymentRequest ID $payment_request_id ".PHP_EOL .print_r($response,true));
-		$payment_status = $response->payments[0]->status;
+		$payment_status = $api->getPaymentStatus($payment_id, $response->payments);
+		$this->logger->write("Payment status for $payment_id is $payment_status");
+		
 		if($payment_status === "successful" OR  $payment_status =="failed" )
 		{
 			$this->logger->write("Response from server is $payment_status.");
