@@ -2,6 +2,8 @@
 
 Tested on OpenCart 2.0.3.1, 2.1.0.2 and 2.2.0.2
 
+For **OpenCart 2.3.X** please check our other plugin: https://github.com/Instamojo/Instamojo-OpenCart-2.3.X
+
 ## Download:
 
 Download the zip from [latest release](https://github.com/Instamojo/Instamojo-OpenCart-2.0/releases/latest) section or download it from the [OpenCart Extensions website](http://www.opencart.com/index.php?route=extension/extension/info&extension_id=21984).
@@ -21,7 +23,7 @@ For auto-installation rename the file to use the extension `ocmod.zip`, for exam
 
 #### Manual Installation:
 
-1.  Copy the contents of `upload` directory(the folders inside upload directory in plugin) into your OpenCart installation root directory.
+1. Copy the contents of `upload` directory(the folders inside upload directory in plugin) into your OpenCart installation root directory.
 2. Navigate to Extensions > Payment from admin panel menu.
 3. Look for the Instamojo in Payment List.
 4. Click on green Install button(the button have + icon).
