@@ -6,9 +6,9 @@ For **OpenCart 2.3.X** please check our other plugin: https://github.com/Instamo
 
 ## Download:
 
-Download the zip from [latest release](https://github.com/Instamojo/Instamojo-OpenCart-2.0/releases/latest) section or download it from the [OpenCart Extensions website](http://www.opencart.com/index.php?route=extension/extension/info&extension_id=21984).
+Download `Instamojo-OpenCart-2.x.ocmod.zip` file from the [latest release](https://github.com/Instamojo/Instamojo-OpenCart-2.0/releases/latest) or download it from the [OpenCart Extensions website](http://www.opencart.com/index.php?route=extension/extension/info&extension_id=21984).
 
-For auto-installation rename the file to use the extension `ocmod.zip`, for example: `Instamojo-OpenCart-2.x.ocmod.zip`.
+**Note**: Don't download the files under **Downloads** section. They won't work.
 
 ## Installation
 
@@ -26,11 +26,11 @@ For auto-installation rename the file to use the extension `ocmod.zip`, for exam
 1. Copy the contents of `upload` directory(the folders inside upload directory in plugin) into your OpenCart installation root directory.
 2. Navigate to Extensions > Payment from admin panel menu.
 3. Look for the Instamojo in Payment List.
-4. Click on green Install button(the button have + icon).
+4. Click on green Install button(the button has `+` icon).
 
 ## Configuration
 
-1. After installation click on edit button corresponding to Instamojo module(the button have pencil icon).
+1. After installation click on edit button corresponding to Instamojo module(the button has pencil icon).
 2. Fill the following details:
 
     - **Order Status :** This is the order of the status that you would like to set after a successful payment.
