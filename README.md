@@ -6,9 +6,9 @@ For **OpenCart 2.3.X** please check our other plugin: https://github.com/Instamo
 
 ## Download:
 
-Download the zip from [latest release](https://github.com/Instamojo/Instamojo-OpenCart-2.0/releases/latest) section or download it from the [OpenCart Extensions website](http://www.opencart.com/index.php?route=extension/extension/info&extension_id=21984).
+Download `Instamojo-OpenCart-2.x.ocmod.zip` file from the [latest release](https://github.com/Instamojo/Instamojo-OpenCart-2.0/releases/latest) or download it from the [OpenCart Extensions website](http://www.opencart.com/index.php?route=extension/extension/info&extension_id=21984).
 
-For auto-installation rename the file to use the extension `ocmod.zip`, for example: `Instamojo-OpenCart-2.x.ocmod.zip`.
+**Note**: Don't download the files under **Downloads** section. They won't work.
 
 ## Installation
 
