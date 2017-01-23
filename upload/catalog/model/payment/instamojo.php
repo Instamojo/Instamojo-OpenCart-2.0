@@ -10,7 +10,7 @@ class ModelPaymentInstamojo extends Model {
       'code'     => 'instamojo',
       'title'    => !empty($checkout_label) ? $checkout_label : $this->language->get('text_title'),
       'terms'      => '',
-      'sort_order' => $this->config->get('custom_sort_order')
+      'sort_order' => $this->config->get('instamojo_sort_order')
     );
   
     return $method_data;
