@@ -98,7 +98,13 @@ class ControllerPaymentInstamojo extends Controller {
   public function index(){
 	# make customer redirect to the payment/instamojo/start for avoiding problem releted to Journal2.6.x Quickcheckout
 
-	$method_data['action'] = $this->config->get('config_url') . 'index.php';
+	if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) 
+	{
+	    $method_data['action'] = $this->config->get('config_ssl') . 'index.php'; 
+	}
+	else{
+	    $method_data['action'] = $this->config->get('config_url') . 'index.php'; 
+	}
 	$this->logger->write("Action URL: " . $method_data['action']);
     $method_data['confirm'] = 'payment/instamojo/start';
 	$this->logger->write("Step 1: Redirecting to  payment/instamojo/start");
