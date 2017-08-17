@@ -17,6 +17,7 @@ $_['entry_status'] = 'Status';
 $_['entry_test_mode'] = 'Test Mode';
 $_['entry_test_mode_on'] = 'On';
 $_['entry_test_mode_off'] = 'Off';
+$_['entry_geo_zone']	= 'Geo Zone';
 $_['entry_order_status'] = 'Order Status';
 $_['entry_sort_order'] = 'Sort Order';
  
