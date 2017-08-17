@@ -37,9 +37,11 @@ class ControllerPaymentInstamojo extends Controller {
     $data['text_disabled'] = $this->language->get('text_disabled');
     $data['text_edit'] = $this->language->get('text_edit');
     $data['entry_status'] = $this->language->get('entry_status');
+    $data['entry_geo_zone'] = $this->language->get('entry_geo_zone');
     $data['entry_sort_order'] = $this->language->get('entry_sort_order');
     
- 
+    $data['text_all_zones'] = $this->language->get('text_all_zones');
+
     $data['action'] = $this->url->link('payment/instamojo', 'token=' . $this->session->data['token'], 'SSL');
     $data['cancel'] = $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL');
 
@@ -67,7 +69,15 @@ class ControllerPaymentInstamojo extends Controller {
       $data['instamojo_client_secret'] = $this->config->get('instamojo_client_secret');
     }
 
- 
+    if (isset($this->request->post['instamojo_geo_zone_id'])) {
+      $data['instamojo_geo_zone_id'] = $this->request->post['instamojo_geo_zone_id'];
+    } else {
+      $data['instamojo_geo_zone_id'] = $this->config->get('instamojo_geo_zone_id');
+    }
+
+    $this->load->model('localisation/geo_zone');
+
+    $data['geo_zones'] = $this->model_localisation_geo_zone->getGeoZones();
        
     if (isset($this->request->post['instamojo_status'])) {
       $data['instamojo_status'] = $this->request->post['instamojo_status'];
